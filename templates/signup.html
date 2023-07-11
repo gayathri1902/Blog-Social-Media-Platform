@@ -1,0 +1,101 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Rubik">
+
+    <title>Signup</title>
+</head>
+<style>
+    body,html{
+      height: 100%;
+      margin: 0;
+    }
+    .bg {
+      background-image: url("{% static 'images/Background_3.jpg'%}");
+      height: 100%; 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .box{
+        background-color: #bed1d3de;
+        border: 5px solid black;
+        padding: 1vh;
+        margin: 1vh;
+        width:50%;
+        height:55%;
+        position: absolute;
+        left: 25%;
+        top: 20%;
+        
+    }
+    h1{
+        font-family:Arial, Helvetica, sans-serif;
+         text-align: center;
+
+    }
+    .inputstyle
+    {
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:x-large;
+        position: absolute;
+        left:50px;
+    }
+    input{
+        padding: 10px;
+        left: 250px;
+        position: absolute;
+        background-color: antiquewhite;
+    }
+    button,a {
+        width: 100px;
+        font-size: 100%;
+        padding: 0vh;
+        background-color: antiquewhite;
+        cursor: pointer;
+        left:50px;
+        position: absolute;
+    }
+    button:hover {
+        background-color: rgb(234, 178, 75);
+        color: white;
+      }
+</style>
+<body>
+
+<div class="bg">
+
+<div class="box">
+<form action="{% url 'signup' %}" method="POST">
+{% csrf_token %}
+<h1 style="font-family:'Courier New', Courier, monospace; ">SIGNUP</h1>
+<br>
+<div class="inputstyle">
+<label for="email"><b>Email</b></label>
+<input type="text" placeholder="Enter Email" name="email" required>
+<br>
+<br>
+<label for="name"><b>Name</b></label>
+<input type="text" placeholder="Enter Name" name="name" required>
+<br>
+<br>
+<label for="pswd"><b>Password</b></label>
+<input type="password" placeholder="Enter Password" name="pswd" required>
+<br>
+<br>
+<label for="rpswd"><b>Repeat Password</b></label>
+<input type="password" placeholder="Repeat Password" name="rpswd" required>
+<br>
+<br>
+<button type="submit">Signup</button>
+</div>
+</form>
+</div>    
+</div>
+</body>
+</html>

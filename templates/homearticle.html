@@ -1,0 +1,139 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Rubik">
+    <title>Main Page</title>
+</head>
+<style>
+
+.bg {
+        background-image: url("{% static 'images/B_home.jpg' %}");
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        overflow-x:hidden;
+}
+
+body,html{
+    height: 100%;
+    margin: 0;
+  }
+.TopBar {
+    background-color: black;
+    height:95px;
+    width:100%;
+    position: fixed;
+    top:0%;
+    z-index: 1;
+    
+}
+.inputstyle {
+    font-family:Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+    font-size:x-large;
+    position: absolute;
+    left:50px;
+    top: 3px;
+}
+.inputstyle > input {
+    padding: 10px;
+    margin: 10px;
+    height: 40px;
+    width: 400px;
+    outline-width:thick;
+}
+button,a {
+    width: 100px;
+    font-size: 100%;
+    padding: 0vh;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(234, 178, 75);
+    color: white;
+  }
+a{
+    background-color: antiquewhite;
+    color: black;
+    text-decoration: none;
+
+}
+a:hover {
+    background-color: rgb(234, 178, 75);
+    color: white;
+  }
+
+.card{
+    background-color: antiquewhite;
+    border: 5px solid black;
+    padding: 1vh;
+    margin: 2vh;
+    width: 1250px;   ;
+    height:fit-content;
+    position:relative;
+    left: 5%;
+    right: 5%;
+    top: 20%;
+    font-size: 25px;
+    
+}
+tr{
+    border: 1px solid black;
+    padding: 1px;
+}
+
+input,input::-webkit-input-placeholder {
+    font-size: 22px;
+}
+
+.btnTop{
+    position:absolute;
+    top:15px;
+    right:20px;
+    height:50px;
+    width:150px;
+    font-size:150%
+}
+
+</style>
+
+<body>
+
+<div class="bg">
+<div class="TopBar">
+<a href="create"><button class="btnTop">Create Blog</button></a>    
+<a href="{% url 'myblog' %}"><button class="btnTop" style="right:180px">My Blogs</button></a>
+<a href="home"><button class="btnTop" style="right:340px;">Log out</button></a>
+
+    <div class="inputstyle">
+        <form action="{% url 'search' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Type topic or genre" name="topic">
+        <button class="btn top" type="submit">Go</button>
+        <br><br>
+        </form>
+    </div>
+</div>
+
+{% for item in article_table %}
+    <div class="card">
+        <h2>{{item.title}}</h2>
+        <p style="font: sans-serif">{{item.name}} | {{item.date}} | {{item.genre}}</p>
+        <p>{{item.content|slice:":500" }}...<a href="{% url 'contentpage' item.title  %}" > Read More &rarr;</a></p>
+    </div>
+{% endfor %}
+<br>
+<br>
+</div>
+
+
+</body>
+</html>

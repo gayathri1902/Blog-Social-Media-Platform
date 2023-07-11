@@ -1,0 +1,90 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Rubik|Bree Serif|Open Sans">
+    <title>Article</title>
+</head>
+
+<style>
+
+.TopBar {
+    background-color: black;
+    height:95px;
+    width:100%;
+    position: fixed;
+    top:0%;
+    z-index: 1;
+}
+
+.bg {
+    background-image: url("{% static 'images/Background_4.jpg' %}");
+    height:100%; 
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    background-attachment:scroll;
+    overflow-x: hidden;
+}
+
+body,html{
+    height: 100%;
+    margin: 0;
+}
+
+.Box {
+    background-color: antiquewhite;
+    border: 5px solid black;
+    padding: 5px;
+    padding-bottom: 5px;
+    width: 1000px;
+    display: inline-block;
+    max-width: 1000px;
+    position: relative ;
+    left: 15%;
+    top:20%;
+}
+
+h2{
+    font-family:"Bree Serif" ;
+    text-align: center;
+    font-size: xx-large;
+}
+p{
+    font-family: "Open Sans";
+    text-align: justify;
+}
+.content{
+    padding: 20px;
+
+}
+</style>
+
+<body>
+    
+<body>
+
+<div class="bg">
+<div class="TopBar"></div>
+<div class="Box">
+<div class="Content">
+    {% for post in postdetails %}
+    <h2>{{post.title}}</h2>
+    <h3>Written by: {{post.name}} <br>{{post.date}}</h3>
+
+    <p>{{post.content}}</p>
+    {% endfor %}
+</div>
+</div>
+
+</div>
+</body>
+
+
+
+</body>
+</html>

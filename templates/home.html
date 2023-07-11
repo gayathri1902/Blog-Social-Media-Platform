@@ -1,0 +1,122 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Rubik">
+    <title>Home page</title>
+</head>
+<style>
+    .bg {
+        background-image: url("{% static 'images/B_mainhome.jpg' %}");
+        background-color:  rgb(240, 220, 149);
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+
+body,html{
+    height: 100%;
+    margin: 0;
+  }
+
+.MiniBox {
+    background-color: antiquewhite;
+    border: 5px solid black;
+    padding: 1vh;
+    margin: 5vh;
+    height: 150px;
+    width: 175px;
+    display: inline-block;
+    
+}
+img {
+    width: 350px;
+    height: 150px;
+    padding: 3ch;
+}
+
+.container {
+    position: absolute;
+    top:400px;
+    left:500px; 
+}
+.TopBar {
+    background-color: black;
+    height:85px;
+    width:100%;
+    position: fixed;
+    top:0%;
+  }
+button {
+    line-height: 25px;
+    width: fit-content;
+    font-size: 150%;
+    padding: 1.5vh;
+    margin: 1.5vh;
+    position:fixed;
+    top:10px;
+    right:10px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(234, 178, 75);
+    color: white;
+  }
+a{
+    background-color: antiquewhite;
+    color: black;
+    text-decoration: none;
+
+}
+a:hover {
+    background-color: rgb(234, 178, 75);
+    color: white;
+  }
+
+.Heading {
+    font-family: "Sofia";
+    font-style: oblique;
+    font-size: 20vh;
+    position: absolute;
+    top: 7vw;
+    right:30vh;
+}
+
+.MiniBox>h3
+{
+    font-size:25px;
+    font-family:"Rubik";
+    text-align: center;
+
+}
+
+img{
+    top: 13vw; 
+    right: 40vw;
+    position:absolute; 
+    width:15vw;
+    height:18vh"
+}
+</style>
+<body>
+<div class="bg">
+
+</div><h1 class="Heading">Blog It</h1> 
+<img src="{% static 'images/logo.png' %}" background=transperent>
+<h1 style="font-family:sofia; top:25vw; left:60vw;position:absolute;"> Feel it Think it Write it </h1>
+
+<div class="TopBar">
+      
+<a href="signup"><button> Signup </button></a>
+<a href="login"><button style="right: 125px;">Login</button></a>
+</div>
+
+</div>
+</body>
+</html>
